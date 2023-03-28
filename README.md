@@ -6,6 +6,7 @@
     
     const [reloadPage, setReloadPage] = React.useState("");
     const [pagedItems, setPagedItems] = React.useState("");
+    const allComponents = [<div></div>,<div></div>,<div></div>,<div></div>,<div></div>,<div></div>];
 
     function App(){
       return(
