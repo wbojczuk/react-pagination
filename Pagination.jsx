@@ -1,10 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./pagination.css";
 
-
-
-// NEEDS props.pages[], props.showAmt
 export default function Pagination(props){
 
     const [position, setPosition] = React.useState(0);
@@ -14,7 +10,7 @@ export default function Pagination(props){
     const componentsInView = pagesInView.map((page)=>{
         const activeClass = (page.num - 1 == currentPage) ? "active" : "";
         return(
-            <Link onClick={handleItemClick} className={activeClass} key={page.num} to={page.link}><li>{page.num}</li></Link>
+            <a onClick={handleItemClick} className={activeClass} key={page.num} to={page.link}><li>{page.num}</li></a>
         )
     });
 
@@ -55,10 +51,6 @@ export default function Pagination(props){
     
     }, [props.reload, currentPage, position])
 
-    
-    
-    
-    
 
     function handleItemClick(evt){
         const item = evt.currentTarget;
@@ -86,7 +78,6 @@ export default function Pagination(props){
             if(pagesInView[pagesInView.length - 1].num < pages){
                 setPosition((oldval)=>{return ++oldval})
             }
-            // CHECK IF PAGE IS ON END AND NEEDS TO BE CHANGED
            
         }
     }
